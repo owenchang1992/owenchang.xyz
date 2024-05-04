@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "format": "pnpm exec prettier . --write",
-    "prepare": "husky install"
+    "prepare": "npx husky install"
   },
   "dependencies": {
     "@codesandbox/sandpack-react": "2.12.0",
