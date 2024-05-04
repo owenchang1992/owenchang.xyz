@@ -108,7 +108,7 @@ export default function Blog({ params }) {
             url: `https://chinche-chang.xyz/blog/${post.slug}`,
             author: {
               '@type': 'Person',
-              name: 'Lee Robinson',
+              name: 'Owen Chang',
             },
           }),
         }}

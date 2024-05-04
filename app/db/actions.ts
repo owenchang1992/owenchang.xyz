@@ -24,6 +24,7 @@ async function getSession(): Promise<Session> {
   return session;
 }
 
+// TODO: figure out the Guestbook
 export async function saveGuestbookEntry(formData: FormData) {
   let session = await getSession();
   let email = session.user?.email as string;
@@ -49,9 +50,10 @@ export async function saveGuestbookEntry(formData: FormData) {
       Authorization: `Bearer ${process.env.RESEND_SECRET}`,
       'Content-Type': 'application/json',
     },
+    // TODO: Test Resend
     body: JSON.stringify({
-      from: 'guestbook@leerob.io',
-      to: 'me@leerob.io',
+      from: 'owenchang.dev@gmail.com',
+      to: 'owenchang.dev@gmail.com',
       subject: 'New Guestbook Entry',
       html: `<p>Email: ${email}</p><p>Message: ${body}</p>`,
     }),
@@ -65,7 +67,7 @@ export async function deleteGuestbookEntries(selectedEntries: string[]) {
   let session = await getSession();
   let email = session.user?.email as string;
 
-  if (email !== 'me@leerob.io') {
+  if (email !== 'owenchang.dev@gmail.com') {
     throw new Error('Unauthorized');
   }
 
