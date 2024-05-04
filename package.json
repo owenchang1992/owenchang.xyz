@@ -3,8 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbo",
-    "build": "pnpm run setup && next build",
-    "build-only": "next build",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "format": "pnpm exec prettier . --write",
