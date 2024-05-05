@@ -35,6 +35,7 @@ export const metadata: Metadata = {
   },
 };
 
+// TODO: use shadcn/ui instead
 const cx = (...classes) => classes.filter(Boolean).join(' ');
 
 export default function RootLayout({

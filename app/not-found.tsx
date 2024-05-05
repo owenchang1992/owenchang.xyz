@@ -1,3 +1,5 @@
+// TODO: send message function
+
 export default function NotFound() {
   return (
     <section>
