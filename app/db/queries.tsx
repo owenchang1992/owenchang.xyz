@@ -21,16 +21,12 @@ let yt = youtube({
 });
 
 export async function getBlogViews() {
-  if (!process.env.POSTGRES_URL) {
-    return [];
-  }
-
   noStore();
   let views = await db.views.findMany({
     select: {
-      count: true
-    }
-  })
+      count: true,
+    },
+  });
 
   return views.reduce((acc, curr) => acc + Number(curr.count), 0);
 }
@@ -38,16 +34,12 @@ export async function getBlogViews() {
 export async function getViewsCount(): Promise<
   { slug: string; count: number }[]
 > {
-  if (!process.env.POSTGRES_URL) {
-    return [];
-  }
-
   noStore();
 
   return db.views.findMany({
     select: {
       slug: true,
-      count: true
-    }
-  })
+      count: true,
+    },
+  });
 }

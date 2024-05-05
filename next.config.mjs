@@ -28,8 +28,8 @@ const nextConfig = {
         source: true,
         destination: true,
         permanent: true,
-      }
-    })
+      },
+    });
 
     return redirects.map(({ source, destination, permanent }) => ({
       source,
