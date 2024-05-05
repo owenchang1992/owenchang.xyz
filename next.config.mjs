@@ -1,8 +1,12 @@
-import postgres from 'postgres';
+import { PrismaClient } from '@prisma/client';
 
-export const sql = postgres(process.env.POSTGRES_URL, {
-  ssl: 'allow',
-});
+const prismaClientSingleton = () => {
+  return new PrismaClient();
+};
+
+const db = globalThis.prisma ?? prismaClientSingleton();
+
+if (process.env.NODE_ENV !== 'production') globalThis.prisma = db;
 
 const nextConfig = {
   experimental: {
@@ -19,10 +23,13 @@ const nextConfig = {
       return [];
     }
 
-    let redirects = await sql`
-      SELECT source, destination, permanent
-      FROM redirects;
-    `;
+    let redirects = await db.redirects.findMany({
+      select: {
+        source: true,
+        destination: true,
+        permanent: true,
+      }
+    })
 
     return redirects.map(({ source, destination, permanent }) => ({
       source,

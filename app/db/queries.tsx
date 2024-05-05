@@ -1,7 +1,7 @@
 'use server';
 
 import { auth, youtube } from '@googleapis/youtube';
-import { sql } from './postgres';
+import db from './db';
 import {
   unstable_cache as cache,
   unstable_noStore as noStore,
@@ -26,10 +26,11 @@ export async function getBlogViews() {
   }
 
   noStore();
-  let views = await sql`
-    SELECT count
-    FROM views
-  `;
+  let views = await db.views.findMany({
+    select: {
+      count: true
+    }
+  })
 
   return views.reduce((acc, curr) => acc + Number(curr.count), 0);
 }
@@ -42,22 +43,11 @@ export async function getViewsCount(): Promise<
   }
 
   noStore();
-  return sql`
-    SELECT slug, count
-    FROM views
-  `;
-}
 
-export async function getGuestbookEntries() {
-  if (!process.env.POSTGRES_URL) {
-    return [];
-  }
-
-  noStore();
-  return sql`
-    SELECT id, body, created_by, updated_at
-    FROM guestbook
-    ORDER BY created_at DESC
-    LIMIT 100
-  `;
+  return db.views.findMany({
+    select: {
+      slug: true,
+      count: true
+    }
+  })
 }
