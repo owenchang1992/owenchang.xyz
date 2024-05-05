@@ -1,7 +1,7 @@
 'use server';
 
 import { auth, youtube } from '@googleapis/youtube';
-import db from './db';
+// import db from './db';
 import {
   unstable_cache as cache,
   unstable_noStore as noStore,
@@ -20,26 +20,26 @@ let yt = youtube({
   auth: googleAuth,
 });
 
-export async function getBlogViews() {
-  noStore();
-  let views = await db.views.findMany({
-    select: {
-      count: true,
-    },
-  });
+// export async function getBlogViews() {
+//   noStore();
+//   let views = await db.views.findMany({
+//     select: {
+//       count: true,
+//     },
+//   });
 
-  return views.reduce((acc, curr) => acc + Number(curr.count), 0);
-}
+//   return views.reduce((acc, curr) => acc + Number(curr.count), 0);
+// }
 
-export async function getViewsCount(): Promise<
-  { slug: string; count: number }[]
-> {
-  noStore();
+// export async function getViewsCount(): Promise<
+//   { slug: string; count: number }[]
+// > {
+//   noStore();
 
-  return db.views.findMany({
-    select: {
-      slug: true,
-      count: true,
-    },
-  });
-}
+//   return db.views.findMany({
+//     select: {
+//       slug: true,
+//       count: true,
+//     },
+//   });
+// }

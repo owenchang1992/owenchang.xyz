@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Suspense } from 'react';
 import ViewCounter from './view-counter';
-import { getViewsCount } from 'app/db/queries';
+// import { getViewsCount } from 'app/db/queries';
 import { getBlogPosts } from 'app/db/blog';
 
 export const metadata = {
@@ -10,14 +10,15 @@ export const metadata = {
 };
 
 export default function BlogPage() {
-  let allBlogs = getBlogPosts();
+  // let allBlogs = getBlogPosts();
 
   return (
     <section>
       <h1 className="font-medium text-2xl mb-8 tracking-tighter">
         read my blog
       </h1>
-      {allBlogs
+      <h4>Coming Soon</h4>
+      {/* {allBlogs
         .sort((a, b) => {
           if (
             new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)
@@ -41,13 +42,13 @@ export default function BlogPage() {
               </Suspense>
             </div>
           </Link>
-        ))}
+        ))} */}
     </section>
   );
 }
 
-async function Views({ slug }: { slug: string }) {
-  let views = await getViewsCount();
+// async function Views({ slug }: { slug: string }) {
+//   let views = await getViewsCount();
 
-  return <ViewCounter allViews={views} slug={slug} />;
-}
+//   return <ViewCounter allViews={views} slug={slug} />;
+// }

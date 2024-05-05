@@ -1,12 +1,12 @@
-import { PrismaClient } from '@prisma/client';
+// import { PrismaClient } from '@prisma/client';
 
-const prismaClientSingleton = () => {
-  return new PrismaClient();
-};
+// const prismaClientSingleton = () => {
+//   return new PrismaClient();
+// };
 
-const db = globalThis.prisma ?? prismaClientSingleton();
+// const db = globalThis.prisma ?? prismaClientSingleton();
 
-if (process.env.NODE_ENV !== 'production') globalThis.prisma = db;
+// if (process.env.NODE_ENV !== 'production') globalThis.prisma = db;
 
 const nextConfig = {
   experimental: {
@@ -18,25 +18,25 @@ const nextConfig = {
     },
   },
   transpilePackages: ['next-mdx-remote'],
-  async redirects() {
-    if (!process.env.POSTGRES_URL) {
-      return [];
-    }
+  // async redirects() {
+  //   if (!process.env.POSTGRES_URL) {
+  //     return [];
+  //   }
 
-    let redirects = await db.redirects.findMany({
-      select: {
-        source: true,
-        destination: true,
-        permanent: true,
-      },
-    });
+  //   let redirects = await db.redirects.findMany({
+  //     select: {
+  //       source: true,
+  //       destination: true,
+  //       permanent: true,
+  //     },
+  //   });
 
-    return redirects.map(({ source, destination, permanent }) => ({
-      source,
-      destination,
-      permanent: !!permanent,
-    }));
-  },
+  //   return redirects.map(({ source, destination, permanent }) => ({
+  //     source,
+  //     destination,
+  //     permanent: !!permanent,
+  //   }));
+  // },
   headers() {
     return [
       {
