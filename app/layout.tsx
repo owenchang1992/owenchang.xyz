@@ -7,6 +7,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import { SandpackCSS } from './blog/[slug]/sandpack';
 import { Navigation } from './components/Navigation';
 import { cn } from './lib/utils';
+import { ThemeProvider } from './components/ThemeProvider';
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.BASE_URL as string),
@@ -53,15 +54,22 @@ export default function RootLayout({
       <head>
         <SandpackCSS />
       </head>
-      <body className="antialiased w-full min-h-screen">
-        <main className=" flex-auto min-w-0 flex flex-col md:px-0">
-          <Navigation />
-          <div className='mt-5'>
-            {children}
-          </div>
-          <Analytics />
-          <SpeedInsights />
-        </main>
+      <body className="antialiased w-full min-h-screen" suppressHydrationWarning={true}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <main className=" flex-auto min-w-0 flex flex-col md:px-0">
+            <Navigation />
+            <div className='mt-5'>
+              {children}
+            </div>
+            <Analytics />
+            <SpeedInsights />
+          </main>
+        </ThemeProvider>
       </body>
     </html>
   );
