@@ -49,9 +49,9 @@ export function ModeToggle() {
   )
 }
 
-export function Navigation() {
+export function Nav() {
   return (
-    <header className="sticky flex justify-between inset-x-0 top-0 w-screen z-50 container bg-transparent">
+    <header className="sticky flex justify-between inset-x-0 top-0 z-50 container bg-transparent">
       <NavigationMenu>
         <NavigationMenuList className="max-w-2xl mx-auto">
           <NavigationMenuItem >
@@ -91,4 +91,4 @@ export function Navigation() {
   )
 }
 
-export default Navigation
+export default Nav

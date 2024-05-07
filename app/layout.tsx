@@ -5,7 +5,7 @@ import { GeistMono } from 'geist/font/mono';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { SandpackCSS } from './blog/[slug]/sandpack';
-import { Navigation } from './components/Navigation';
+import { Nav } from './components/nav';
 import { cn } from './lib/utils';
 import { ThemeProvider } from './components/ThemeProvider';
 
@@ -54,18 +54,16 @@ export default function RootLayout({
       <head>
         <SandpackCSS />
       </head>
-      <body className="antialiased w-full min-h-screen" suppressHydrationWarning={true}>
+      <body className="antialiased w-screen h-svh" suppressHydrationWarning={true}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <main className="min-w-0 flex flex-col md:px-0 flex-grow h-full">
-            <Navigation />
-            <div className='mt-5'>
-              {children}
-            </div>
+          <main className="min-w-0 flex flex-col h-full w-full">
+            <Nav />
+            {children}
             {/* <Analytics />
             <SpeedInsights /> */}
           </main>
