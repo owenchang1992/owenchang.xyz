@@ -51,7 +51,7 @@ export function ModeToggle() {
 
 export function Navigation() {
   return (
-    <header className="sticky flex justify-between inset-x-0 top-0 w-screen z-50 container">
+    <header className="sticky flex justify-between inset-x-0 top-0 w-screen z-50 container bg-transparent">
       <NavigationMenu>
         <NavigationMenuList className="max-w-2xl mx-auto">
           <NavigationMenuItem >
@@ -65,7 +65,14 @@ export function Navigation() {
           <NavigationMenuItem>
             <Link href="/about" legacyBehavior passHref>
               <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "hover:bg-background hover:text-foreground/80 text-foreground/60")}>
-                about
+                About
+              </NavigationMenuLink>
+            </Link>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <Link href="/contact" legacyBehavior passHref>
+              <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "hover:bg-background hover:text-foreground/80 text-foreground/60")}>
+                Contact
               </NavigationMenuLink>
             </Link>
           </NavigationMenuItem>

@@ -46,10 +46,10 @@ export default function RootLayout({
     <html
       lang="en"
       className={cn(
-        'text-black bg-white dark:text-white dark:bg-[#111010]',
         GeistSans.variable,
         GeistMono.variable,
       )}
+      suppressHydrationWarning={true}
     >
       <head>
         <SandpackCSS />
@@ -61,13 +61,13 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <main className=" flex-auto min-w-0 flex flex-col md:px-0">
+          <main className="min-w-0 flex flex-col md:px-0 flex-grow h-full">
             <Navigation />
             <div className='mt-5'>
               {children}
             </div>
-            <Analytics />
-            <SpeedInsights />
+            {/* <Analytics />
+            <SpeedInsights /> */}
           </main>
         </ThemeProvider>
       </body>
