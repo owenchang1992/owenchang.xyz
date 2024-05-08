@@ -9,6 +9,17 @@ import { Nav } from './components/nav';
 import { cn } from './lib/utils';
 import { ThemeProvider } from './components/ThemeProvider';
 
+import type { Viewport } from 'next'
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  // Also supported by less commonly used
+  interactiveWidget: "resizes-content",
+}
+
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.BASE_URL as string),
   title: {
