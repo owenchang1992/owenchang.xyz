@@ -89,7 +89,7 @@ export default function Blog({ params }) {
     notFound();
   }
 
-  return null
+  return null;
 
   // return (
   //   <section>

@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { cn } from "app/lib/utils";
-import { motion, stagger, useAnimate, useInView } from "framer-motion";
-import { useEffect } from "react";
+import { cn } from 'app/lib/utils';
+import { motion, stagger, useAnimate, useInView } from 'framer-motion';
+import { useEffect } from 'react';
 
 export const TypewriterEffect = ({
   words,
@@ -20,7 +20,7 @@ export const TypewriterEffect = ({
   const wordsArray = words.map((word) => {
     return {
       ...word,
-      text: word.text.split(""),
+      text: word.text.split(''),
     };
   });
 
@@ -29,17 +29,17 @@ export const TypewriterEffect = ({
   useEffect(() => {
     if (isInView) {
       animate(
-        "span",
+        'span',
         {
-          display: "inline-block",
+          display: 'inline-block',
           opacity: 1,
-          width: "fit-content",
+          width: 'fit-content',
         },
         {
           duration: 0.3,
           delay: stagger(0.1),
-          ease: "easeInOut",
-        }
+          ease: 'easeInOut',
+        },
       );
     }
   }, [animate, isInView]);
@@ -56,7 +56,7 @@ export const TypewriterEffect = ({
                   key={`char-${index}`}
                   className={cn(
                     `dark:text-white text-black opacity-0 hidden`,
-                    word.className
+                    word.className,
                   )}
                 >
                   {char}
@@ -72,8 +72,8 @@ export const TypewriterEffect = ({
   return (
     <div
       className={cn(
-        "text-base sm:text-xl md:text-3xl lg:text-5xl font-bold text-center",
-        className
+        'text-base sm:text-xl md:text-3xl lg:text-5xl font-bold text-center',
+        className,
       )}
     >
       {renderWords()}
@@ -87,14 +87,13 @@ export const TypewriterEffect = ({
         transition={{
           duration: 0.8,
           repeat: Infinity,
-          repeatType: "reverse",
+          repeatType: 'reverse',
         }}
         className={cn(
-          "inline-block rounded-sm w-1 h-4 md:h-8 lg:h-10 bg-foreground",
-          cursorClassName
+          'inline-block rounded-sm w-1 h-4 md:h-8 lg:h-10 bg-foreground',
+          cursorClassName,
         )}
       ></motion.span>
     </div>
   );
 };
-

@@ -45,23 +45,23 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn(
-        GeistSans.variable,
-        GeistMono.variable,
-      )}
+      className={cn(GeistSans.variable, GeistMono.variable)}
       suppressHydrationWarning={true}
     >
       <head>
         <SandpackCSS />
       </head>
-      <body className="antialiased w-screen h-svh" suppressHydrationWarning={true}>
+      <body
+        className="antialiased w-screen h-lvh flex"
+        suppressHydrationWarning={true}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <main className="min-w-0 flex flex-col h-full w-full">
+          <main className="min-w-0 flex flex-col flex-auto dark:bg-black bg-white  dark:bg-dot-white/[0.2] bg-dot-black/[0.2] relative">
             <Nav />
             {children}
             {/* <Analytics />
