@@ -52,7 +52,7 @@ export default function RootLayout({
         <SandpackCSS />
       </head>
       <body
-        className="antialiased w-screen h-lvh flex"
+        className="antialiased w-screen h-dvh flex"
         suppressHydrationWarning={true}
       >
         <ThemeProvider

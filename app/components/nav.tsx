@@ -63,7 +63,7 @@ export function Nav() {
               <NavigationMenuLink
                 className={cn(
                   navigationMenuTriggerStyle(),
-                  'hover:bg-background pl-0',
+                  'hover:bg-background',
                 )}
               >
                 <HomeIcon width={18} height={18} className="mr-2" />
@@ -100,8 +100,8 @@ export function Nav() {
 
       <nav className="flex items-center">
         <Link href="https://github.com/owenchang1992">
-          <Button variant="ghost" size="icon">
-            <GitHubLogoIcon width={18} height={18} />
+          <Button variant="ghost" size="icon" aria-label="github">
+            <GitHubLogoIcon width={18} height={18}/>
           </Button>
         </Link>
         <ModeToggle />

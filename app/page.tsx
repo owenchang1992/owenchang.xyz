@@ -15,7 +15,7 @@ export default function Page() {
   return (
     <section className="container h-full flex flex-col max-h-[40rem] flex-auto md:flex-row items-center justify-center gap-7 sm:max-w-3xl lg:max-w-5xl mx-auto">
       <Avatar className="h-48 w-48">
-        <AvatarImage src="/avatar.png" />
+        <AvatarImage src="/avatar.png" alt="Owen Chang avatar"/>
         <AvatarFallback>CC</AvatarFallback>
       </Avatar>
       <div className="flex flex-col items-center md:items-start">
