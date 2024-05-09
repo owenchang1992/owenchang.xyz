@@ -71,7 +71,7 @@ export function Nav() {
               </NavigationMenuLink>
             </Link>
           </NavigationMenuItem>
-          <NavigationMenuItem>
+          {/* <NavigationMenuItem>
             <Link href="/about" legacyBehavior passHref>
               <NavigationMenuLink
                 className={cn(
@@ -94,7 +94,7 @@ export function Nav() {
                 Contact
               </NavigationMenuLink>
             </Link>
-          </NavigationMenuItem>
+          </NavigationMenuItem> */}
         </NavigationMenuList>
       </NavigationMenu>
 
