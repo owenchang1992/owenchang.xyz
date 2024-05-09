@@ -6,6 +6,7 @@ import Link from 'next/link';
 import {
   HomeIcon,
   GitHubLogoIcon,
+  LinkedInLogoIcon,
   MoonIcon,
   SunIcon,
 } from '@radix-ui/react-icons';
@@ -102,6 +103,11 @@ export function Nav() {
         <Link href="https://github.com/owenchang1992">
           <Button variant="ghost" size="icon" aria-label="github">
             <GitHubLogoIcon width={18} height={18}/>
+          </Button>
+        </Link>
+        <Link href="https://www.linkedin.com/in/owen-chang-973886134/">
+          <Button variant="ghost" size="icon" aria-label="linkedin">
+            <LinkedInLogoIcon width={18} height={18} />
           </Button>
         </Link>
         <ModeToggle />
