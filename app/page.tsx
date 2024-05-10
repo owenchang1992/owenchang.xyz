@@ -33,7 +33,7 @@ export default function Page() {
 
   return (
     <>
-      <section className="container min-h-[calc(100svh-56px)] py-6 grid grid-cols-1 items-start content-center justify-center md:grid-cols-[auto_1fr] md:grid-rows-[min-content_min-content] gap-x-6 gap-y-8 sm:max-w-3xl lg:max-w-5xl mx-auto">
+      <section className="container min-h-[calc(100svh-56px)] py-6 grid grid-cols-1 items-center content-center justify-center md:grid-cols-[auto_1fr] md:grid-rows-[min-content_min-content] gap-x-6 gap-y-8 sm:max-w-3xl lg:max-w-5xl mx-auto">
         <Avatar className="h-48 w-48 row-span-1 col-span-1 m-auto">
           <AvatarImage src="/avatar.png" alt="Owen Chang avatar" />
           <AvatarFallback>CC</AvatarFallback>
